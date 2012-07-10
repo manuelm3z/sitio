@@ -1,0 +1,172 @@
+/* CSS CONTENIDOS */
+*{
+	font-family: 'Imprima', sans-serif;
+}
+
+form{
+	background: #82b126;
+	margin-left: 28%;
+	border-radius: 10px;
+	padding: 10px 50px 20px 50px;
+	text-align:center;
+	width:30%;
+	box-shadow: 0px 0px 15px black;
+}
+
+
+.Data{
+	background:white;
+	border-style:none;
+	border-radius: 0.1em;
+	margin-top:10px;
+	color: black;
+	font-size: 18px;
+	padding: 5px 5px 5px 5px;
+	text-align: center;
+	width: 90%;
+}
+
+.Twitter{
+	text-decoration: none;
+	color: black;
+	font-size: 18px;
+	text-align: justify;
+}
+
+.Grande{
+	color: black;
+	font-size: 50px;
+	text-align:center;
+}
+
+.Media{
+	color: black;
+	font-size: 30px;
+	text-align:left;
+	margin-left: 5%;
+}
+.Media-Centrada{
+	color: black;
+	font-size: 30px;
+	text-align:center;
+}
+
+.Normal{
+	color: black;
+	font-size: 18px;
+	text-align: justify;
+	padding: 0px 10% 0px 10%;
+}
+
+.Firma{
+	color: black;
+	font-size: 14px;
+	text-align: right;
+	padding: 0px 10% 0px 10%;
+}
+
+#CA{
+	top: 20%;
+	left: 20%;
+	width:400px;
+	height: 270px;
+}
+
+#HTML5{
+	top: 20%;
+	left: 40%;
+	width:400px;
+	height: 300px;
+}
+
+.Boton{
+	background: black;
+	box-shadow:inset 0px 0px 5px silver;
+	color:white;
+	font-size:16px;
+	border-style: none;
+	border-radius:10px;
+	left: 25%;
+	margin-top:2em;
+	text-decoration:none;
+	width: 200px;
+	text-align:center;
+	padding: 5px 5px 5px 5px;
+	transition-duration: 2s;
+}
+
+.Boton:hover{
+	background:white;
+	color:black;
+}
+
+/*Seccion de Eventos */
+
+.eventos{
+	margin:5%;
+	min-height:200px;
+	box-shadow: 0px 0px 15px black;
+	border-radius: 10px;
+}
+
+.eventos:hover{
+	box-shadow: 0px 0px 15px #82b126;
+}
+
+.evento-logo img{
+	height: 200px;
+	width : 200px;
+	float:left;
+}
+
+.contenido-evento article{
+	color:black;
+	font-size: 18px;
+	text-align:left;
+	float:left;
+}
+
+.titulos{
+	color: #82b126;
+	font-size: 40px;
+	text-align: center;
+	text-shadow: 1px 1px 1px black;
+}
+
+.nosotros{
+	margin:5%;
+	box-shadow: 0px 0px 15px black;
+	border-radius: 10px;
+}
+
+.logo_formulario{
+	width:100%;
+	height: 10%;
+}
+.logo_procesador{
+	width:80%;
+	height: 50%;
+}
+
+.error{
+	color:red;
+	font-size: 16px;
+}
+
+.informacion{
+	background: #82b126;
+	border-radius: 10px;
+	text-align:center;
+	margin-top:20%;
+	margin-left:30%;
+	height:100px;
+	width: 600px;
+	box-shadow: 0px 0px 15px black;
+}
+
+.informacion p{
+	color: white;
+	vertical-align:center;
+	font-size: 30px;
+	text-shadow: inset 0px 0px 2px black;
+}
