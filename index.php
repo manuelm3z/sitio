@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-VE">
 <head>
 	<title>CodeAragua </title>
 	<link href='http://fonts.googleapis.com/css?family=Imprima' rel='stylesheet' type='text/css'>
