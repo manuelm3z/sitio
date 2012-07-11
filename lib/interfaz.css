@@ -1,0 +1,78 @@
+/* Diseño Responsivo, CodeAragua */
+
+*{
+	font-family: 'Imprima', sans-serif;
+	margin:0px;
+	padding:0px;
+}
+
+.nolink{
+	color: white;
+	cursor: pointer;
+	display:inline;
+	font-size:20px;
+	padding: 2% 5% 2% 5%;
+	text-decoration:none;
+}
+
+.nolink:hover{
+	background:white;
+	color:#82b126;
+	text-shadow: 1px 1px 1px black;
+}
+
+#contenido{
+	margin: 0px 0px 2% 0px;
+}
+
+header{
+	background-color: #82b126;
+	text-align:center;
+	height: 200px;	
+	width:100%;	
+}
+
+#logo{
+	height:100%;
+	text-align: center;
+	width:100%;
+}
+
+#menu {
+	background: black;
+	padding:1%;
+	text-align:center;
+	width:100%;
+}
+
+.text-normal{
+	color: black;
+	font-size: 18px;
+	padding: 0px 10% 0px 10%;
+	text-align: justify;
+}
+
+.text-titulos{
+	color: #82b126;
+	font-size: 40px;
+	margin-top:5%;
+	text-align: center;
+	text-shadow: 1px 1px 1px black;
+}
+
+.text-firmas{
+	color: black;
+	font-size: 14px;
+	padding: 0px 10% 0px 10%;
+	text-align: right;
+}
+
+#principal{
+	background: black;
+	bottom:0px;
+	color:white;
+	font-size:14px;
+	position:fixed;
+	text-align:center;
+	width:100%;
+}
