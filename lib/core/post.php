@@ -33,8 +33,28 @@ class Post{
 			$fila = mysql_fetch_assoc($consulta);
 			$this->autor = $fila["nombre_usuario"]." ".$fila["apellido_usuario"];
 		}
-		if(!empty($inEtiquetas)){
-			$this->etiquetas = $inEtiquetas;
+		if(!empty($inId)){
+			//selecciono las etiquetas que tengan relación con el post
+			$consulta = mysql_query("select etiquetas_post.* from blog_post_etiquetas left join (etiquetas_post) on (blog_post_etiquetas.id_etiqueta = etiquetas_post.id_etiqueta) where blog_post_etiquetas.id_post =".$inId)
+			$postEtiquetas = "Sin Etiquetas";
+			$etiquetaArray = array();
+			$idEtiquetaArray = array();
+			while($fila = mysql_fetch_assoc($consulta)){
+				array_push($etiquetaArray, $fila["etiqueta"]);
+				array_push($idEtiquetaArray, $fila["id_etiqueta"]);
+			}
+			//verifico que el array tenga contenido
+			if(sizeof($etiquetaArray) > 0){
+				//para cada elemento del array
+				foreach ($etiquetaArray as $etiqueta) {
+					if($postEtiquetas == "Sin Etiquetas"){
+						$postEtiquetas = $etiqueta;
+					}else{
+						$postEtiquetas = $postEtiquetas.", ".$etiqueta;
+					}
+				}
+			}
+			$this->etiquetas = $postEtiquetas;
 		}
 		if(!empty($inFecha)){
 			$dividoFecha = explode("-", $inFecha);

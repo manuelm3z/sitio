@@ -10,7 +10,7 @@ define("server", "localhost");
 // usuario de la base de datos
 define("user", "root");
 // password de la base de datos
-define("pass", "");
+define("pass", "naci21-09");
 // base de dato donde se obtendran los valores
 define("bd", "codearagua");
 
