@@ -1,10 +1,9 @@
 <?php
-/************************************************
-* Autor: @manuelm3z                             *
-* Documentación: esta clase se encarga de       *
-* administrar los objetos de los post para el   *
-* blog del sitio.                               *
-************************************************/
+/*
+* Autor: @manuelm3z                             
+* Documentación: esta clase se encarga de instanciar los post
+* para el blog    
+*/
 class Post{
 	public $id_post;
 	public $titulo_post;
@@ -35,7 +34,7 @@ class Post{
 		}
 		if(!empty($inId)){
 			//selecciono las etiquetas que tengan relación con el post
-			$consulta = mysql_query("select etiquetas_post.* from blog_post_etiquetas left join (etiquetas_post) on (blog_post_etiquetas.id_etiqueta = etiquetas_post.id_etiqueta) where blog_post_etiquetas.id_post =".$inId)
+			$consulta = mysql_query("select etiquetas_post.* from blog_post_etiquetas left join (etiquetas_post) on (blog_post_etiquetas.id_etiqueta = etiquetas_post.id_etiqueta) where blog_post_etiquetas.id_post =".$inId);
 			$postEtiquetas = "Sin Etiquetas";
 			$etiquetaArray = array();
 			$idEtiquetaArray = array();
@@ -57,9 +56,34 @@ class Post{
 			$this->etiquetas = $postEtiquetas;
 		}
 		if(!empty($inFecha)){
-			$dividoFecha = explode("-", $inFecha);
+			$dividoFecha = explode('-', $inFecha);
 			$this->fecha_post = $dividoFecha[2]."/".$dividoFecha[1]."/".$dividoFecha[0];
 		}
 	}
+	//retorna el titulo del post
+	public function getId(){
+		return $this->id_post;
+	}
+	//retorna el titulo del post
+	public function getTitulo(){
+		return $this->titulo_post;
+	}
+	//retorna el contenido del post
+	public function getContenido(){
+		return $this->contenido_post;
+	}
+	//retorna el estado del post
+	public function getEstado(){
+		return $this->estado_post;
+	}
+	//retorna el nombre del autor
+	public function getAutor(){
+		return $this->autor;
+	}
+	//retorna la fecha del post
+	public function getFecha(){
+		return $this->fecha_post;
+	}
+	
 }
 ?>
