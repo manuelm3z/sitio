@@ -42,7 +42,7 @@ class Blog{
 		return $this->numTotalRegistros;
 	}
 	//regresa el numero total de paginas a mostrar
-	public function getNumTotalRegistros(){
+	public function getNumTotalPaginas(){
 		$this->numTotalPaginas = $this->numTotalRegistros/10;
 		return $this->numTotalPaginas;
 	}
