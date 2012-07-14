@@ -6,23 +6,43 @@
 	padding:0px;
 }
 
-.nolink{
-	color: white;
-	cursor: pointer;
-	display:inline;
-	font-size:20px;
-	padding: 2% 5% 2% 5%;
-	text-decoration:none;
+nav ul{
+	font-size:0px;
+	padding:0px;
 }
 
-.nolink:hover{
-	background:white;
+nav ul li{
+	background:black;
+	display: inline-block;
+	font-size:20px;
+	min-height:25px;
+	padding:10px 0;
+	vertical-align: top;
+	width: 25%;
+	text-align:center;
+	color:white;
+}
+
+nav ul li:hover{
 	color:#82b126;
-	text-shadow: 1px 1px 1px black;
+	background:white;
+}
+
+#contenedor{
+	width:100%;
 }
 
 #contenido{
-	margin: 0px 0px 2% 0px;
+	width:70%;
+	float:left;
+}
+
+#time-line{
+	background:rgba(130,177,38,0.5);
+	width:30%;
+	min-height: 400px;
+
+	float:left;
 }
 
 header{
@@ -33,23 +53,21 @@ header{
 }
 
 #logo{
-	height:100%;
-	text-align: center;
-	width:100%;
+	display:none;
+	height: 80%;
+	margin: 5% auto;
 }
 
-#menu {
-	background: black;
-	padding:1%;
-	text-align:center;
-	width:100%;
+#banner{
+	display:inline;
+	width:50%;
 }
 
 .text-normal{
 	color: black;
 	font-size: 18px;
-	padding: 0px 10% 0px 10%;
 	text-align: justify;
+	padding: 0% 5% 0% 5%;
 }
 
 .text-titulos{
@@ -75,4 +93,23 @@ header{
 	position:fixed;
 	text-align:center;
 	width:100%;
+}
+
+@media screen and (max-width:600px){
+	#contenido, #time-line{
+		width:100%;
+		box-shadow: 0px 0px 2px black
+	}
+
+	nav ul li{
+		width:50%;
+	}
+
+	#banner{
+		display:none;
+	}
+	#logo{
+		display:inline;
+	}
+
 }
