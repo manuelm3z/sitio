@@ -17,28 +17,7 @@ class datos{
 	}
 }
 
-class usuarios{
-	public $ADD_DATA;
-	public $consulta;
-	public $resultado;
-	public $Nombre;
-	public $Apellido;
-	public $Cedula;
-	public $Twitter;
-	public $Email;
-	public $Form;
 
-	public function __construct(){
-		$datos=new datos();
-		if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['cedula']) && isset($_POST['twitter']) && isset($_POST['email']) && isset($_POST['formulario'])) {
-		$this->Nombre=($_POST['nombre']);
-		$this->Apellido=($_POST['apellido']);
-		$this->Cedula=($_POST['cedula']);
-		$this->Twitter=($_POST['twitter']);
-		$this->Email=($_POST['email']);
-		$this->Formulario=($_POST['formulario']);
-		}
-	}
 
 	public function talleres(){
 		//echo "<p class='Grande'> Te Registraste con exito:".$this->Nombre." ".$this->Apellido.", </br> Nos vemos el sabado 28-04-2012 en la Aldea el Limon</p>";
