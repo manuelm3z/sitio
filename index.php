@@ -51,7 +51,7 @@
 		    </p>
 		</section>
 	</section>	
-	<section id="time-line">zona para el time Line</section>		
+	<section id="time-line">zona para el time Line</br></br></section>		
 	<footer id="principal"> Todos los derechos reservados 2012 </footer>
 </body>
 </html>	
