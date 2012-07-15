@@ -19,7 +19,7 @@
 	<nav>
 		<ul>
 			<li id="foro" class="nolink" >Discusión</li>
-			<li id="contacto" class="nolink" onclick=cambio(this)>Contacto</li>
+			<li id="contacto" class="nolink" onclick="cambio(this)">Contacto</li>
 			<li id="eventos" class="nolink" onclick="cambio(this)">Eventos</li>
 			<li id="login" class="nolink" onclick="cambio(this)">Ingresar</li>
 		</ul>	
