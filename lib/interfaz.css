@@ -5,24 +5,51 @@
 	margin:0px;
 	padding:0px;
 }
-
-.nolink{
-	color: white;
-	cursor: pointer;
-	display:inline;
-	font-size:20px;
-	padding: 2% 5% 2% 5%;
-	text-decoration:none;
+body{
+	background:rgba(130,177,38,0.5);
+}
+nav ul{
+	font-size:0px;
+	padding:0px;
 }
 
-.nolink:hover{
-	background:white;
+nav ul li{
+	background:black;
+	color:white;
+	display: inline-block;
+	font-size:20px;
+	min-height:25px;
+	padding:10px 0;
+	text-align:center;
+	text-shadow: 0px 0px 1px black;
+	transition-duration: 5s;
+	vertical-align: top;
+	width: 25%;
+}
+
+nav ul li:hover{
 	color:#82b126;
-	text-shadow: 1px 1px 1px black;
+	background:white;
+	cursor: pointer;
+
+}
+
+#contenedor{
+	width:100%;
 }
 
 #contenido{
-	margin: 0px 0px 2% 0px;
+	width:70%;
+	float:left;
+	background: white;
+	box-shadow: 1px 0px 2px white;
+}
+
+#time-line{
+	padding:1%;
+	width:28%;
+	background: none;
+	float:left;
 }
 
 header{
@@ -33,23 +60,22 @@ header{
 }
 
 #logo{
-	height:100%;
-	text-align: center;
-	width:100%;
+	display:none;
+	height:180px;
+	margin: 10px auto;
 }
 
-#menu {
-	background: black;
-	padding:1%;
-	text-align:center;
-	width:100%;
+#banner{
+	display:inline;
+	height:180px;
+	width:50%;
 }
 
 .text-normal{
 	color: black;
 	font-size: 18px;
-	padding: 0px 10% 0px 10%;
 	text-align: justify;
+	padding: 0% 5% 0% 5%;
 }
 
 .text-titulos{
@@ -75,4 +101,26 @@ header{
 	position:fixed;
 	text-align:center;
 	width:100%;
+}
+
+@media screen and (max-width:700px){
+	#contenido, #time-line{
+		width:100%;
+	}
+
+	#contenido{
+		box-shadow: 0px 1px 2px white;
+	}
+
+	nav ul li{
+		width:50%;
+	}
+
+	#banner{
+		display:none;
+	}
+	#logo{
+		display:inline;
+	}
+
 }
