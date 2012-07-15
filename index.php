@@ -13,15 +13,15 @@
 </head>
 <body>
 	<header>
-		<img id="banner" src="imagenes/banner.png" />
-		<img id="logo" src="imagenes/logo.png" />
+		<a href="http://codearagua.com"><img id="banner" src="imagenes/banner.png" /></a>
+		<a href="http://codearagua.com"><img id="logo" src="imagenes/logo.png" /></a>
 	</header>
 	<nav>
 		<ul>
-			<li id="inicio" class="nolink">Principal </li>
-			<li class="nolink">Foro</li>
-			<li id="contacto" class="nolink">Contacto</li>
-			<li id="eventos" class="nolink">Eventos</li>
+			<li id="foro" class="nolink" >Discusión</li>
+			<li id="contacto" class="nolink" onclick="cambio(this)">Contacto</li>
+			<li id="eventos" class="nolink" onclick="cambio(this)">Eventos</li>
+			<li id="login" class="nolink" onclick="cambio(this)">Ingresar</li>
 		</ul>	
 	</nav>	
 	<section id="contenedor">
@@ -50,9 +50,11 @@
 		    	Augusto Lozada <br/>
 		    	Manuel Zambrano.<br/><br/><br/>
 		    </p>
-		</section>
+			</section>
+		</section>	
+		<section id="time-line">zona para el time Line</br></br></section>
+		<footer id="principal"> Todos los derechos reservados 2012 </footer>
 	</section>	
-	<section id="time-line">zona para el time Line</br></br></section>		
-	<footer id="principal"> Todos los derechos reservados 2012 </footer>
+	
 </body>
 </html>	
