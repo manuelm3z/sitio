@@ -7,20 +7,43 @@
 class Post{
 	public $id_post;
 	public $titulo_post;
+	public $url_imagen;
+	public $error_imagen;
 	public $contenido_post;
 	public $estado_post;
 	public $autor;
 	public $etiquetas;
 	public $fecha_post;
 
-	function __construct($inId=null, $inTitulo=null, $inContenido=null, $inEstado=null, $inIdAutor=null, $inEtiquetas=null, $inFecha=null){
-		//Verificar si las variables están vacias antes de asignarlas.
+	/*
+	* se encarga de grabar los datos de un post.
+	*/
+	function __construct($inId=null, $inTitulo=null, $_FILES, $inContenido=null, $inEstado=null, $inIdAutor=null, $inEtiquetas=null, $inFecha=null){
+		/*
+		* Verificar si las variables están vacias antes de asignarlas.
+		*/
 		if(!empty($inId)){
 			$this->id_post = $inId;
 		}
 		if(!empty($inTitulo)){
 			$this->titulo_post = $inTitulo;
 		}
+		if(!empty($_FILES["file"])){
+			if (($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") || ($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/png") && ($_FILES["file"]["size"] < 50000)){
+				if ($_FILES["file"]["error"] > 0){
+					$this->error_imagen = "Error devuelto: " . $_FILES["file"]["error"];
+					}else{
+						if(file_exists("upload/".$usuario->log_usuario."/".$_FILES["file"]["name"])){
+							$this->error_imagen = "Error devuelto: ".$_FILES["file"]["name"]." ya existe.";
+							}else{
+								move_uploaded_file($_FILES["file"]["tmp_name"], "upload/".$usuario->log_usuario."/".$_FILES["file"]["name"]);
+								$this->url_imagen = "upload/".$usuario->log_usuario."/".$_FILES["file"]["name"];
+								}
+							}
+						}else{
+							$this->error_imagen = "Error devuelto: Archivo invalido";
+						}
+			}
 		if(!empty($inContenido)){
 			$this->contenido_post = $inContenido;
 		}
