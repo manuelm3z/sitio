@@ -12,11 +12,12 @@
 	<meta name="viewport" content="width = device-width, initial-scale=1, maximum-scale=1"/>
 </head>
 <body>
-	<form>
-		<input id="titulo-post" type="text"></input>
-		<input id="imagen-post" type="text"></input>
-		<input id="etiquetas-post" type="text"></input>
-		<input id="contenido-post" type="text"></input>
+	<form action="prueba.php" method="post" enctype="multipart/form-data">
+		<input id="titulo-post" type="text" name="titulo_post" /><br />
+		<input id="imagen-post" type="file" name="imagen" /><br />
+		<input id="contenido-post" type="text" /><br />
+		<input id="etiquetas-post" type="text" /><br />
+
 	</form>	
 </body>
 </html>	

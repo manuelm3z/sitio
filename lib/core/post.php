@@ -12,8 +12,11 @@ class Post{
 	public $contenido_post;
 	public $estado_post;
 	public $autor;
+	public $id_autor;
 	public $etiquetas;
 	public $fecha_post;
+	//Esta variable guarda los resultados de las consultas a base de datos.
+	public $resultado;
 
 	/*
 	* se encarga de grabar los datos de un post.
@@ -28,22 +31,7 @@ class Post{
 		if(!empty($inTitulo)){
 			$this->titulo_post = $inTitulo;
 		}
-		if(!empty($_FILES["file"])){
-			if (($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") || ($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/png") && ($_FILES["file"]["size"] < 50000)){
-				if ($_FILES["file"]["error"] > 0){
-					$this->error_imagen = "Error devuelto: " . $_FILES["file"]["error"];
-					}else{
-						if(file_exists("upload/".$usuario->log_usuario."/".$_FILES["file"]["name"])){
-							$this->error_imagen = "Error devuelto: ".$_FILES["file"]["name"]." ya existe.";
-							}else{
-								move_uploaded_file($_FILES["file"]["tmp_name"], "upload/".$usuario->log_usuario."/".$_FILES["file"]["name"]);
-								$this->url_imagen = "upload/".$usuario->log_usuario."/".$_FILES["file"]["name"];
-								}
-							}
-						}else{
-							$this->error_imagen = "Error devuelto: Archivo invalido";
-						}
-			}
+		
 		if(!empty($inContenido)){
 			$this->contenido_post = $inContenido;
 		}
@@ -83,29 +71,64 @@ class Post{
 			$this->fecha_post = $dividoFecha[2]."/".$dividoFecha[1]."/".$dividoFecha[0];
 		}
 	}
-	//retorna el titulo del post
-	public function getId(){
-		return $this->id_post;
-	}
-	//retorna el titulo del post
-	public function getTitulo(){
-		return $this->titulo_post;
-	}
-	//retorna el contenido del post
-	public function getContenido(){
-		return $this->contenido_post;
-	}
-	//retorna el estado del post
-	public function getEstado(){
-		return $this->estado_post;
-	}
-	//retorna el nombre del autor
-	public function getAutor(){
-		return $this->autor;
-	}
-	//retorna la fecha del post
-	public function getFecha(){
-		return $this->fecha_post;
+	/*
+	* Éste método se encarga de guardar en base de datos la entrada.
+	*/
+	public function setPost($inTitulo=null, $_FILES, $inContenido=null, $inIdAutor=null, $inEtiquetas=null){
+		//si el titulo no está vacío le coloco el titulo.
+		if(!empty($inTitulo)){
+			$this->titulo_post = $inTitulo;
+		}
+		//si tiene imagen la subo y guardo la url.
+		if(!empty($_FILES["imagen"])){
+			//asigno el tipo a la variable tipo.
+			$tipo = $_FILES["imagen"]["type"];
+			//asigno el tamaño a la variable size.
+			$size = $_FILES["imagen"]["size"];
+			//asigno el nombre a la variable nombre_imagen.
+			$nombre_imagen = $_FILES["imagen"]["name"];
+			//primero verifico el tipo de archivo que estoy subiendo.
+			if (($tipo == "image/gif") || ($tipo == "image/jpeg") || ($tipo == "image/pjpeg") || ($tipo == "image/png") && ($size < 50000)){
+				//verifico que no existan errores.
+				if ($_FILES["imagen"]["error"] > 0){
+					//asigno el error a la variable de clase error_imagen.
+					$this->error_imagen = "Error devuelto: " . $_FILES["imagen"]["error"];
+				}else{
+					//verifico que no exista otra imagen con el mismo nombre.
+					if(file_exists("upload/".$usuario->log_usuario."/".$nombre_imagen)){
+						//asigno el error a la variable de clase error_imagen.
+						$this->error_imagen = "Error devuelto: ".$nombre_imagen." ya existe.";
+					}else{
+						//muevo la imagen a la carperta con el nombre del usuario.
+						move_uploaded_file($_FILES["imagen"]["tmp_name"], "upload/".$usuario->log_usuario."/".$nombre_imagen);
+						$this->url_imagen = "upload/".$usuario->log_usuario."/".$nombre_imagen;
+					}
+				}
+			}else{
+				//asigno el error a la variable de clase error_imagen.
+				$this->error_imagen = "Error devuelto: Archivo invalido";
+			}
+		}
+		//Si el parametro no está vacío lo asigno a la variable.
+		if(!empty($inContenido)){
+			$this->contenido_post = $inContenido;
+		}
+		//Si el parametro no está vacío lo asigno a la variable.
+		if(!empty($inIdAutor)){
+			$this->id_autor = $inIdAutor;
+		}
+
+		$consulta = mysql_query("INSERT INTO blog_post VALUES(0,".$this->titulo_post.", ".$this->contenido_post.", 0, ".$this->id_autor.", curdate(), ".$this->url_imagen.";");
+		if((mysql_affected_rows()) > 0){
+			$this->resultado = True;
+		}else{
+			$this->resultado = False;
+		}
+
+
+		if(!empty($inEtiquetas)){
+			
+		}
 	}
 	
 }

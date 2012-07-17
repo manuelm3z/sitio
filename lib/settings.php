@@ -78,7 +78,8 @@ $blog_post = "CREATE TABLE IF NOT EXISTS blog_post(
 	contenido_post longtext NOT NULL,
 	estado_post int(1) NOT NULL,
 	id_usuario int(4) NOT NULL,
-	fecha_post datetime NOT NULL
+	fecha_post datetime NOT NULL,
+	url_imagen text
 	);";
 
 /*

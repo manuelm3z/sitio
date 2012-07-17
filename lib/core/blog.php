@@ -8,7 +8,6 @@ class Blog{
 	public $postArray;
 	public $numTotalRegistros;
 	public $numTotalPaginas;
-	public $consulta;
 	public $pagina;
 
 	function __construct($inId=null, $inEtiquetas=null, $pagina=null){
@@ -22,11 +21,11 @@ class Blog{
 			$inicio = ($this->pagina - 1)*10;
 		}
 		if(!empty($inId)){
-			$this->consulta = mysql_query("SELECT * FROM blog_post WHERE id = ".$inId." ORDER BY id DESC");
+			$consulta = mysql_query("SELECT * FROM blog_post WHERE id = ".$inId." ORDER BY id DESC");
 		}else if(!empty($inEtiquetas)){
-			$this->consulta = mysql_query("SELECT blog_post.* FROM blog_post_etiquetas LEFT JOIN (blog_post) ON (blog_post_etiquetas.id_post = blog_post.id_post) WHERE blog_post_etiquetas.id_etiqueta =".$inEtiquetas." ORDER BY blog_post.id_post DESC LIMIT ".$inicio.", 10;");
+			$consulta = mysql_query("SELECT blog_post.* FROM blog_post_etiquetas LEFT JOIN (blog_post) ON (blog_post_etiquetas.id_post = blog_post.id_post) WHERE blog_post_etiquetas.id_etiqueta =".$inEtiquetas." ORDER BY blog_post.id_post DESC LIMIT ".$inicio.", 10;");
 		}else{
-			$this->consulta = mysql_query("SELECT * FROM blog_post ORDER BY id_post DESC LIMIT ".$inicio.", 10;");
+			$consulta = mysql_query("SELECT * FROM blog_post ORDER BY id_post DESC LIMIT ".$inicio.", 10;");
 		}
 
     $this->postArray = array();

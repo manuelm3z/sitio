@@ -5,35 +5,34 @@
 * servidor de base de datos
 */
 include '../settings.php';
-class Datos{
+/*
+ * Clase hija de mysqli para la conexion de base de datos.
+ */
+class Datos extends mysqli {
 	public $conexion;
-	public $baseDatos;
-	public $respuesta;	
+    public function __construct() {
+        parent::__construct(server, user, pass, bd);
+        if (mysqli_connect_error()) {
+            die('Error de Conexión (' . mysqli_connect_errno() . ') '
+                    . mysqli_connect_error());
+        }else{
+        	$this->conexion = true;
+        }
+    }
+}
+/*class Datos{
+	public $conexion;
+	public $baseDatos;	
 		
-	function __construct(){
+	public function __construct(){
 		$this->conexion=(@mysql_connect(server,user,pass));
 		$this->baseDatos=(@mysql_select_db(bd,$this->conexion));
 
 		if(!$this->conexion){
-			$this->respuesta = "No se puede conectar al servidor";
-			return $this->respuesta;
+		echo 'No se puede conectar al servidor';
 		}elseif(!$this->baseDatos){
-			$this->respuesta = "no se encuentra la base de datos, creando...";
-			return $this->respuesta;
-			$consulta = mysql_query("CREATE DATABASE ".bd);
-			foreach($tablas as $ejecutar){
-				$consulta = mysql_query($ejecutar);
-				}
-		}
+			echo 'No se puede conectar a la Base de Datos';
+			}
 	}
-
-	/*
-	* retornará true si la conexion está establecida
-	*/
-	public function comprobarConexion(){
-		if($this->conexion && $this->baseDatos){
-			return true;
-		}
-	}
-}
+}*/
 ?>
