@@ -47,6 +47,7 @@ $talleres = "CREATE TABLE IF NOT EXISTS talleres(
 $usuario = "CREATE TABLE IF NOT EXISTS usuario(
 	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	usuario varchar(30) NOT NULL UNIQUE KEY,
+	clave varchar(128) NOT NULL,
 	nombre varchar(30), apellido varchar(30),
 	email varchar(50) NOT NULL,
 	fecha_registro datetime NOT NULL,
@@ -116,6 +117,6 @@ $tablas = array('talleres' => $talleres,
 	'usuarios_permisos' => $usuarios_permisos,
 	'post' => $post,
 	'etiqueta' => $etiqueta,
-	'post_etiqueta' => $blog_post_etiquetas,
+	'post_etiqueta' => $post_etiqueta,
 	);
 ?>
