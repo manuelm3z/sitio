@@ -60,7 +60,8 @@ $usuario = "CREATE TABLE IF NOT EXISTS usuario(
 */
 $permiso = "CREATE TABLE IF NOT EXISTS permiso(
 	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	nombre text NOT NULL
+	nombre text NOT NULL,
+	codename varchar(10) NOT NULL
 	);";
 
 /*
