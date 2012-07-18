@@ -3,11 +3,11 @@
 <head>
 	<title>CodeAragua </title>
 	<link href='http://fonts.googleapis.com/css?family=Imprima' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="lib/interfaz.css" type="text/css" />
+	<link rel="stylesheet" href="lib/css/interfaz.css" type="text/css" />
 	<!--Para que funcione el CSS en varios navegaores-->
-	<script src="lib/prefixfree.min.js" type="text/javascript"></script>
+	<script src="lib/js/prefixfree.min.js" type="text/javascript"></script>
 	<!--Funciones propias del sitio-->
-	<script src="lib/funciones.js" type="text/javascript"></script>
+	<script src="lib/js/funciones.js" type="text/javascript"></script>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width = device-width, initial-scale=1, maximum-scale=1"/>
 </head>
