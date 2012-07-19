@@ -1,21 +1,30 @@
 <?php
-/************************************************
-* Autor: @manuelm3z                             *
-* Documentación: esta clase se encarga de crear *
-* un objeto por usuario cada vez que tengan que *
-* relizar alguna acción en el sitio.            *
-************************************************/
+/*
+* Autor: @manuelm3z                             
+* Documentación: esta clase se encarga de crear un objeto por usuario cada vez que inicie sesion un usuario,
+* o se registre uno nuevo.
+*/
 include 'datos.php';
 class Usuario{
+	//Id del usuario.
 	public $id;
+	//Nombre de usuario.
 	public $usuario;
+	//Contraseña de usuario.
 	private $clave;
+	//Nombre real del usuario.
 	public $nombre;
+	//Apellido del usuario.
 	public $apellido;
+	//Correo electronico del usuario.
 	public $email;
+	//Fecha en que se registro.
 	public $fecha_registro;
+	//fecha de la ultima vez que inició session.
 	public $ultima_conexion;
+	//Este campo indica si el usuario está activo o no.
 	public $estado;
+	//Es una propieda donde se guarda un string despues de cada operación, principalmente es para el programador.
 	public $mensaje;
 
 	function __construct($inUsuario=null, $inClave=null){
@@ -24,17 +33,18 @@ class Usuario{
 			//realizo la verificación en base de datos que el registro exista.
 			if($resultado = $this->buscarUsuario($inUsuario)){
 				if($inClave == $resultado["clave"]){
-					$this->id = $resultado["id"];
-					$this->usuario = $resultado["usuario"];
-					$this->clave = $resultado["clave"];
-					$this->nombre = $this->vacio($resultado["nombre"]);
-					$this->apellido = $this->vacio($resultado["apellido"]);
-					$this->email = $resultado["email"];
-					$this->fecha_registro = $this->fecha($resultado["fecha_registro"]);
-					$this->ultima_conexion = $this->fecha($resultado["ultima_conexion"]);
-					$this->estado = $resultado["estado"];
 					//verficar si el usuario está activo
-					if($this->estado == 1){
+					if($resultado["estado"] == 1){
+						//Asigno los valores a las propiedades del objeto
+						$this->id = $resultado["id"];
+						$this->usuario = $resultado["usuario"];
+						$this->clave = $resultado["clave"];
+						$this->nombre = $this->vacio($resultado["nombre"]);
+						$this->apellido = $this->vacio($resultado["apellido"]);
+						$this->email = $resultado["email"];
+						$this->fecha_registro = $this->fecha($resultado["fecha_registro"]);
+						$this->ultima_conexion = $this->fecha($resultado["ultima_conexion"]);
+						$this->estado = $resultado["estado"];
 						if($_SESSION['usuario']=$this->usuario){
 							$this->mensaje = "Sesion iniciada";
 						}else{
@@ -51,6 +61,21 @@ class Usuario{
 			}			
 		}else{
 			$this->mensaje = "Debe llenar todos los campos";
+		}
+	}
+	/*
+	* Este método se encarga de activar el usuario en base de datos.
+	*/
+	public function activarUsuario($inId){
+		//Me aseguro de que no esté vacia la variable.
+		if (!empty($inId)){
+			if($consulta = mysql_query("UPDATE usuario SET estado=1 WHERE id=".$inId.";")){
+				$this->mensaje = "Usuario activado con exito";
+			}else{
+				$this->mensaje = "No se pudo conectar con la base de datos";
+			}
+		}else{
+			$this->mensaje = "No se recibio ningun id";
 		}
 	}
 	/*
@@ -82,7 +107,9 @@ class Usuario{
 	* Este método se encarga de enviar un correo electronico con el id del usuario para la activacion.
 	*/
 	private function enviarEmail($inEmail, $inId){
+		//Asunto del correo electronico
 		$asunto = "Activación de cuenta CodeAragua.com";
+		//cuerpo del correo electronico
 		$cuerpo = "
 		<html lang='es-VE'>
 		<head>
@@ -99,7 +126,7 @@ class Usuario{
 		$headers = "MIME-Version: 1.0\r\n";
 		$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
 		//dirección del remitente 
-		$headers .= "From: Equipo CodeAragua <noreply@codearagua.com>\r\n"; 
+		$headers .= "From: Equipo CodeAragua <no-reply@codearagua.com>\r\n"; 
 		if(mail($inEmail,$asunto,$cuerpo,$headers)){
 			return True;
 		}else{
@@ -117,7 +144,7 @@ class Usuario{
 	/*
 	* Este método se encarga de registrar un nuevo usuario en base de datos.
 	*/
-	public function nuevo($inUsuario=null, $inClave=null, $inEmail=null){
+	public function nuevoUsuario($inUsuario=null, $inClave=null, $inEmail=null){
 		//Verifico si las variables están vacias.
 		if(!empty($inUsuario) && !empty($inClave) && !empty($inEmail)){
 			if($resultado = $this->buscarUsuario($inUsuario)){
@@ -134,6 +161,8 @@ class Usuario{
 					$this->mensaje = "No se pudo conectar con la base de datos";
 				}
 			}
+		}else{
+			$this->mensaje = "Debe llenar todos los campos";
 		}
 	}
 	/*
