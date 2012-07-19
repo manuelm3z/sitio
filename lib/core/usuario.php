@@ -22,8 +22,7 @@ class Usuario{
 		//Verificar si las variables están vacias antes de asignarlas.
 		if(!empty($inLog) && !empty($inClave)){
 			//realizo la verificación en base de datos que el registro exista.
-			if($consulta = mysql_query("SELECT * FROM usuario WHERE usuario='".$inLog."';")){
-				$resultado = mysql_fetch_assoc($consulta);
+			if($resultado = $this->buscarUsuario($inLog)){
 				if($inClave == $resultado["clave"]){
 					$this->id = $resultado["id"];
 					$this->usuario = $resultado["usuario"];
@@ -54,7 +53,14 @@ class Usuario{
 			$this->mensaje = "Debe llenar todos los campos";
 		}
 	}
-
+	/*
+	* Este método se encarga de ejecutar la consulta de base de datos de busqueda de usuario.
+	*/
+	private function buscarUsuario($usuario){
+		$consulta = mysql_query("SELECT * FROM usuario WHERE usuario='".$usuario."';");
+		$resultado = mysql_fetch_assoc($consulta);
+		return $resultado;
+	}
 	/*
 	* Este método se encarga de formatear la fecha y hora recibida de base de datos.
 	*/
@@ -70,6 +76,15 @@ class Usuario{
 	private function vacio($valor){
 		if(!$valor){
 			return "No esta registrado";
+		}
+	}
+	/*
+	* Este método se encarga de registrar un nuevo usuario en base de datos.
+	*/
+	public function nuevo($usuario=null, $clave=null, $email=null){
+		//Verifico si las variables están vacias.
+		if(!empty($usuario) && !empty($clave) && !empty($email)){
+
 		}
 	}
 }
