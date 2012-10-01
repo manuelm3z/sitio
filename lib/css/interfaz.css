@@ -6,7 +6,7 @@
 	padding:0px;
 }
 body{
-	background:rgba(130,177,38,0.5);
+	/*background:rgba(130,177,38,0.5);*/
 }
 nav ul{
 	font-size:0px;
@@ -24,14 +24,15 @@ nav ul li{
 	text-shadow: 0px 0px 1px black;
 	transition-duration: 1s;
 	vertical-align: top;
-	width: 25%;
-	
+	width: 33.3%;
+	box-shadow: 1px 1px 1px black;
 }
 
 nav ul li:hover,nav ul li a:hover{
 	color:#82b126;
 	background:white;
 	cursor: pointer;
+	box-shadow: 1px 1px 1px white;
 
 }
 nav ul li a{
@@ -44,7 +45,7 @@ nav ul li a{
 }
 
 #contenido{
-	width:70%;
+	width:100%;
 	background: white;
 	box-shadow: 1px 0px 2px white;
 	float:left;
@@ -132,5 +133,49 @@ header{
 	#logo{
 		display:inline;
 	}
+	.nosotros ul{
+		list-style-type: none;
+	}
+}
 
+.nosotros{
+	box-shadow: 0px 0px 5px silver;
+	margin: 10px auto 30px auto;
+	padding:2px;
+	width:80%;
+}
+.nosotros ul{
+	margin-left: 5%;
+}
+
+.contacto{
+	text-shadow: 1px 1px 2px black;
+	color:#82b126;
+	font-size:24px;
+}
+
+.boton{
+	width:50%;
+	margin:0px auto 30px auto;
+}
+
+#solicitud{
+	background:black;
+	color:white;
+	display: inline-block;
+	font-size:20px;
+	margin: 0px auto;
+	min-height:25px;
+	padding:10px 0;
+	text-align:center;
+	text-shadow: 0px 0px 1px black;
+	transition-duration: 1s;
+	vertical-align: top;
+	width:100%;
+}
+
+#solicitud:hover{
+	color:#82b126;
+	background:silver;
+	cursor: pointer;
 }
