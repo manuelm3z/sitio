@@ -2,11 +2,9 @@
 $dia = date('d');//dia
 $mes = date('m');//mes
 $ano = date('Y');//año
+$datos = $_POST['trans'];
 $zonaHoraria = date('e');//zona horaria
-$plan = $_POST['']
-$email = $_POST['email']
-$destinatario = $_POST['nombre'];
-$asunto = "Comprobante de Solicitud"; 
+/*$asunto = "Comprobante de Solicitud"; 
 $cuerpo = ' 
 <html> 
 <head> 
@@ -44,5 +42,11 @@ $headers .= "From: CodeAragua <ventas@codearagua.com>\r\n";
 //dirección de respuesta, si queremos que sea distinta que la del remitente 
 $headers .= "Reply-To: ventas@codearagua.com\r\n"; 
 
-mail($email,$asunto,$cuerpo,$headers) 
+mail($email,$asunto,$cuerpo,$headers)
+*/ 
+$obj = json_decode($datos);
+print $obj->{'nombre'};
+print $obj->{'apellido'};
+print $obj->{'email'};
+print $obj->{'plan'};
 ?>

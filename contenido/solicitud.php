@@ -1,4 +1,4 @@
-<form id="fs">
+<form id="fs" onsubmit="registro(this)">
 	Nombre:<input type="text" name="nombre"><br>
 	Apellido:<input type="text" name="apellido"><br>
 	Email:<input type="email" name="email"><br>
@@ -7,5 +7,5 @@
 			<option value="Intermedio">Intermedio</option>
 			<option value="Avanzado">Avanzado</option>
 		 </select>
-	<input type="button" value="Solicitar" onclick="registro(this)">
+	<input type="submit" value="Solicitar">
 </form>
