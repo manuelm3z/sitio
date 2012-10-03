@@ -14,7 +14,7 @@ nav ul{
 }
 
 nav ul li{
-	background:black;
+	background:#424242;
 	color:white;
 	display: inline-block;
 	font-size:20px;
@@ -85,7 +85,7 @@ header{
 }
 
 .text-titulos{
-	color: #82b126;
+	/*color: #82b126;*/
 	font-size: 40px;
 	margin-top:5%;
 	text-align: center;
@@ -100,7 +100,7 @@ header{
 }
 
 #principal{
-	background: black;
+	background: #424242;
 	color:white;
 	font-size:14px;
 	text-align:center;
