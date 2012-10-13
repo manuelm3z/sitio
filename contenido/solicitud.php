@@ -1,4 +1,4 @@
-<form id="fs" onsubmit="registro(this)">
+<form id="fs" onsubmit="registro(this); return false">
 	Nombre:<input type="text" name="nombre"><br>
 	Apellido:<input type="text" name="apellido"><br>
 	Email:<input type="email" name="email"><br>

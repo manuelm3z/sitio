@@ -1,9 +1,14 @@
 <?php
+$json = file_get_contents('php://input');
+$obj = json_decode($json);
+
+
+$zonaHoraria = date('e');//zona horaria
 $dia = date('d');//dia
 $mes = date('m');//mes
 $ano = date('Y');//año
-$datos = $_POST['trans'];
-$zonaHoraria = date('e');//zona horaria
+echo "Dia ".$dia." Mes ".$mes." Año ".$ano;
+print $obj->nombre;
 /*$asunto = "Comprobante de Solicitud"; 
 $cuerpo = ' 
 <html> 
@@ -44,9 +49,5 @@ $headers .= "Reply-To: ventas@codearagua.com\r\n";
 
 mail($email,$asunto,$cuerpo,$headers)
 */ 
-$obj = json_decode($datos);
-print $obj->{'nombre'};
-print $obj->{'apellido'};
-print $obj->{'email'};
-print $obj->{'plan'};
+
 ?>
