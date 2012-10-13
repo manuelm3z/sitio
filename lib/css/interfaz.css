@@ -206,3 +206,14 @@ select{
 	width:50%;
 	margin:30px auto 30px auto;
 }
+
+#retorno{
+	box-shadow: 0px 0px 5px black;
+	color:black;
+	height:50px;
+	font-size:20px;
+	margin: 20% auto;
+	text-align:center;
+	width:80%;
+
+}
