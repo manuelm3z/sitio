@@ -11,21 +11,35 @@ class Host{
 	public $apellido;
 	public $email;
 	public $plan;
+	public $fecha;
+	public $destinatario;
+	private $monto;
 
-	/*function __construct(nombre, apellido, email, plan){
-		$this->nombre=nombre;
-		$this->apellido=apellido;
-		$this->email=email;
-		$this->plan=plan;
+	function __construct($nombre, $apellido, $email, $plan){
+		$this->nombre=$nombre;
+		$this->apellido=$apellido;
+		$this->email=$email;
+		$this->plan=$plan;
+		$this->destinatario=$this->nombre." ".$this->apellido;
 		$dia = date('d');//dia
 		$mes = date('m');//mes
 		$ano = date('Y');//año
-		$fecha = $dia."/".$mes."/".$ano;
-		$destinatario = $this->nombre." ".$this->apellido;
-	}*/
+		$this->fecha = $dia."/".$mes."/".$ano;
+	
+	}
 
-	/*function enviarCorreo(fecha, destinatario, email){
-
+	function enviarCorreo(){
+		switch ($this->plan) {
+			case 'Basico':
+				$this->monto="30 Bs";
+				break;
+			case 'Intermedio':
+				$this->monto="80 Bs";
+				break;
+			case 'Avanzado':
+				$this->monto="130 Bs";
+				break;
+		}
 		$asunto = "Comprobante de Solicitud"; 
 		$cuerpo = ' 
 <html> 
@@ -33,8 +47,9 @@ class Host{
    <title>Comprobante de Solicitud</title> 
 </head> 
 <body> 
-<h1>Estimado(a) '.$destinatario.'</h1> 
-<p>Para procesar su solicitud debe realizar un deposito o transferencia a las siguientes cuentas:<br>
+<h1>Estimado(a) '.$this->destinatario.' ('.$this->email.')</h1> 
+Haz seleccionado el plan '.$this->plan.'
+<p>Para procesar su solicitud debe realizar un deposito o transferencia a las siguientes cuentas por un monto de '.$this->monto.':<br>
 Banco: Banco Occidental de Descuento
 Nombre: Augusto Lozada
 Cuenta Ahorro: 0116-0203-73-0197391095<br><br>
@@ -49,7 +64,7 @@ Cuenta Ahorro: 0134-0142-02-1422163960<br><br>
 
 Luego, enviar un correo electronico a ventas@codearagua.com, el comprobante de transferencia o deposito.<br><br>
 
-Mensaje generado '.$dia.'/'.$mes.'/'.$ano.'
+Mensaje generado '.$this->fecha.'
 </p> 
 </body> 
 </html> 
@@ -61,8 +76,13 @@ Mensaje generado '.$dia.'/'.$mes.'/'.$ano.'
 		$headers .= "From: CodeAragua <ventas@codearagua.com>\r\n";
 		//dirección de respuesta, si queremos que sea distinta que la del remitente
 		$headers .= "Reply-To: ventas@codearagua.com\r\n";
-		mail($email,$asunto,$cuerpo,$headers);
+		if(mail($this->email,$asunto,$cuerpo,$headers)){
+			echo "<section id='retorno'>Envío de solicitud realizada, se le enviará un comprobante a su email</section>";
+		}else{
+			echo "<section id='retorno'>Oops!!! ocurrio un problema procesando tu solicitud, prueba mas tarde.</section>";
+		}
+		mail("ventas@codearagua.com",$asunto,$cuerpo,$headers);
 
-	}*/
+	}
 }
 ?>
