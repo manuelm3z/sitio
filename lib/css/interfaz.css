@@ -109,34 +109,7 @@ header{
 	position: fixed;
 }
 
-@media screen and (max-width:700px){
-	#contenido, #time-line{
-		width:100%;
-		padding:0px;
-	}
 
-	#contenido{
-		box-shadow: 0px 1px 2px white;
-	}
-
-	nav ul li{
-		width:100%;
-	}
-
-	#principal{
-		display:none;
-	}
-
-	#banner{
-		display:none;
-	}
-	#logo{
-		display:inline;
-	}
-	.nosotros ul{
-		list-style-type: none;
-	}
-}
 
 .nosotros{
 	box-shadow: 0px 0px 5px silver;
@@ -184,7 +157,7 @@ form {
 	color:white;
 	margin: 5% auto;
 	text-align:center;
-	width: 26%;
+	width: 30%;
 }
 
 form input{
@@ -216,4 +189,35 @@ select{
 	text-align:center;
 	width:80%;
 
+}
+@media screen and (max-width:700px){
+	#contenido, #time-line{
+		width:100%;
+		padding:0px;
+	}
+
+	#contenido{
+		box-shadow: 0px 1px 2px white;
+	}
+
+	nav ul li{
+		width:100%;
+	}
+
+	#principal{
+		display:none;
+	}
+
+	#banner{
+		display:none;
+	}
+	#logo{
+		display:inline;
+	}
+	.nosotros ul{
+		list-style-type: none;
+	}
+	form {
+		width:90%;
+	}
 }
