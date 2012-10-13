@@ -1,14 +1,18 @@
 <?php
-$json = file_get_contents('php://input');
-$obj = json_decode($json);
-
+$nombre = $_POST['nombre'];
+$apellido = $_POST['apellido'];
+$email = $_POST['email'];
+$plan = $_POST['plan'];
 
 $zonaHoraria = date('e');//zona horaria
 $dia = date('d');//dia
 $mes = date('m');//mes
 $ano = date('Y');//año
 echo "Dia ".$dia." Mes ".$mes." Año ".$ano;
-print $obj->nombre;
+print $nombre;
+print $apellido;
+print $email;
+print $plan;
 /*$asunto = "Comprobante de Solicitud"; 
 $cuerpo = ' 
 <html> 

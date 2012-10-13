@@ -1,20 +1,23 @@
 /* Diseño Responsivo, CodeAragua */
 
 *{
-	font-family: 'Imprima', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	margin:0px;
 	padding:0px;
 }
 body{
+	background:#f5f5f5;
 	/*background:rgba(130,177,38,0.5);*/
 }
 nav ul{
 	font-size:0px;
 	padding:0px;
+	box-shadow: 0px 1px 5px black;
+	background:#797979;
 }
 
 nav ul li{
-	background:#424242;
+	background:#797979;
 	color:white;
 	display: inline-block;
 	font-size:20px;
@@ -25,15 +28,14 @@ nav ul li{
 	transition-duration: 1s;
 	vertical-align: top;
 	width: 33.3%;
-	box-shadow: 1px 1px 1px black;
+	box-shadow: 1px 1px 1px silver;
 }
 
 nav ul li:hover,nav ul li a:hover{
 	color:#82b126;
-	background:white;
+	background:#f5f5f5;
 	cursor: pointer;
-	box-shadow: 1px 1px 1px white;
-
+	box-shadow: inset 1px 1px 10px black;
 }
 nav ul li a{
 	color:white;
@@ -46,7 +48,6 @@ nav ul li a{
 
 #contenido{
 	width:100%;
-	background: white;
 	box-shadow: 1px 0px 2px white;
 	float:left;
 }
@@ -59,7 +60,6 @@ nav ul li a{
 }
 
 header{
-	background-color: #82b126;
 	text-align:center;
 	height: 200px;	
 	width:100%;	
@@ -100,7 +100,7 @@ header{
 }
 
 #principal{
-	background: #424242;
+	background: #797979;
 	color:white;
 	font-size:14px;
 	text-align:center;
@@ -149,14 +149,13 @@ header{
 }
 
 .contacto{
-	text-shadow: 1px 1px 2px black;
-	color:#82b126;
+	color:#61841c;
 	font-size:24px;
 }
 
 .boton{
 	width:50%;
-	margin:0px auto 30px auto;
+	margin:20px auto 30px auto;
 }
 
 #solicitud{
@@ -178,4 +177,32 @@ header{
 	color:#82b126;
 	background:silver;
 	cursor: pointer;
+}
+form {
+	box-shadow: 0px 1px 5px black;
+	background:#797979;
+	color:white;
+	margin: 5% auto;
+	text-align:center;
+	width: 26%;
+}
+
+form input{
+	color:black;
+	box-shadow:inset 0px 0px 1px silver;
+	height: 30px;
+	margin-top:10px;
+	text-align:center;
+	width:80%;
+}
+select{
+	color:black;
+	margin-left: 2px;
+	width:60%;
+}
+
+#envio{
+	height:40px;
+	width:50%;
+	margin:30px auto 30px auto;
 }

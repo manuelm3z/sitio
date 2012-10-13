@@ -2,7 +2,7 @@
 <html lang="es-VE">
 <head>
 	<title>CodeAragua </title>
-	<link href='http://fonts.googleapis.com/css?family=Imprima' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="lib/css/interfaz.css" type="text/css" />
 	<!--Para que funcione el CSS en varios navegaores-->
 	<script src="lib/js/prefixfree.min.js" type="text/javascript"></script>
