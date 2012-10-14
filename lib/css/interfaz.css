@@ -4,6 +4,7 @@
 	font-family: 'Open Sans', sans-serif;
 	margin:0px;
 	padding:0px;
+	background:#f5f5f5;
 }
 body{
 	background:#f5f5f5;
@@ -47,9 +48,13 @@ nav ul li a{
 }
 
 #contenido{
-	width:100%;
-	box-shadow: 1px 0px 2px white;
+	width:70%;
 	float:left;
+}
+#twitter{
+	float:left;
+	width:30%;
+	text-align: center;
 }
 
 #time-line{
@@ -198,6 +203,11 @@ select{
 
 	#contenido{
 		box-shadow: 0px 1px 2px white;
+		width:100%;
+	}
+
+	#twitter{
+		display:none;
 	}
 
 	nav ul li{
