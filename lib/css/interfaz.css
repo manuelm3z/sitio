@@ -48,22 +48,9 @@ nav ul li a{
 }
 
 #contenido{
-	width:70%;
+	width:100%;
 	float:left;
 }
-#twitter{
-	float:left;
-	width:30%;
-	text-align: center;
-}
-
-#time-line{
-	padding:1%;
-	width:28%;
-	float:left;
-	background: none;
-}
-
 header{
 	text-align:center;
 	height: 200px;	
@@ -196,18 +183,13 @@ select{
 
 }
 @media screen and (max-width:700px){
-	#contenido, #time-line{
+	#contenido{
 		width:100%;
 		padding:0px;
 	}
 
 	#contenido{
-		box-shadow: 0px 1px 2px white;
 		width:100%;
-	}
-
-	#twitter{
-		display:none;
 	}
 
 	nav ul li{
