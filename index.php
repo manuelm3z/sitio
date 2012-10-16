@@ -42,16 +42,11 @@
 
 			</section>
 		</section>
-<<<<<<< HEAD
 		<section id="twitter">
 		<a class="twitter-timeline"  href="http://twitter.com/CodeAragua" data-widget-id="257363319139221504">Tweets por @CodeAragua</a>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		</section >	
-		
-=======
-		<footer id="principal"> Todos los derechos reservados 2012 </footer>
->>>>>>> 83c22a64d5df00e7912ce171a6758bf8daa6424e
-		
+		<footer id="principal"> Todos los derechos reservados 2012 </footer>		
 	</section>	
 
 	
